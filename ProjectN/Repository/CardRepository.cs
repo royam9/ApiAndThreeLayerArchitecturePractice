@@ -136,9 +136,11 @@ public class CardRepository
 
         using (var conn = new SqlConnection(_connectString))
         {
+            await conn.OpenAsync();
+
             using (var transaction = conn.BeginTransaction())
             {
-                var result = await conn.ExecuteAsync(sql, param);
+                var result = await conn.ExecuteAsync(sql, param, transaction);
 
                 transaction.Commit();
 

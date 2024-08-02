@@ -50,12 +50,18 @@ public class CardApiController : Controller
     /// <summary>
     /// 取得卡片
     /// </summary>
+    /// <remarks>那個text其實沒啥用，cost其實也沒啥用</remarks>
     /// <param name="id"></param>
     /// <param name="cost"></param>
     /// <param name="text"></param>
+    /// <response code = "200">回傳對應的卡片</response>
+    /// <response code = "404">找不到對應的卡片</response>
     /// <returns></returns>
     [HttpGet]
     [Route("{id}")]
+    [Produces("application/json")]
+    [ProducesResponseType(typeof(Card), 200)]
+    // [Obsolete]
     public async Task<IActionResult> GetCardById([FromRoute] int id, [FromQuery] int? cost, [FromQuery] string? text)
     {
         var result = await _cardRepository.GetCardById(id, cost, text);
