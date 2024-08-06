@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\ProjectNService\ProjectNService.csproj" />
+    <ProjectReference Include="..\Common\ProjectN.Common.csproj" />
+    <ProjectReference Include="..\ProjectNService\ProjectN.Service.csproj" />
   </ItemGroup>
 
 </Project>

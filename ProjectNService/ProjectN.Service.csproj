@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
+    <ProjectReference Include="..\Common\ProjectN.Common.csproj" />
+    <ProjectReference Include="..\Repository\ProjectN.Repository.csproj" />
   </ItemGroup>
 
 </Project>

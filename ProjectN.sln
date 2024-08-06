@@ -5,13 +5,17 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectN", "ProjectN\ProjectN.csproj", "{0AE5D591-1CC7-45D7-8457-A4E97276DA48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeLayerArchitecture", "ThreeLayerArchitecture\ThreeLayerArchitecture.csproj", "{444B48F9-6E5D-4511-A485-52CE4F2A1336}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreeLayerArchitecture", "ThreeLayerArchitecture\ThreeLayerArchitecture.csproj", "{444B48F9-6E5D-4511-A485-52CE4F2A1336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectNService", "ProjectNService\ProjectNService.csproj", "{86D4806B-F6BB-4D9E-9EB2-5C27002C6A6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectN.Service", "ProjectNService\ProjectN.Service.csproj", "{86D4806B-F6BB-4D9E-9EB2-5C27002C6A6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{674DB894-5F05-4234-849A-F96C69A8E196}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectN.Repository", "Repository\ProjectN.Repository.csproj", "{674DB894-5F05-4234-849A-F96C69A8E196}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7837E3F3-75BD-4FB7-A6FD-0A989265617B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectN.Common", "Common\ProjectN.Common.csproj", "{7837E3F3-75BD-4FB7-A6FD-0A989265617B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperAndSwagger", "DapperAndSwagger", "{5D23578A-6958-42FC-9CBE-6B41BE88BCEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThreeLayer", "ThreeLayer", "{8232F7F5-CDFB-4DE2-959B-219B687B8442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0AE5D591-1CC7-45D7-8457-A4E97276DA48} = {5D23578A-6958-42FC-9CBE-6B41BE88BCEC}
+		{444B48F9-6E5D-4511-A485-52CE4F2A1336} = {8232F7F5-CDFB-4DE2-959B-219B687B8442}
+		{86D4806B-F6BB-4D9E-9EB2-5C27002C6A6E} = {8232F7F5-CDFB-4DE2-959B-219B687B8442}
+		{674DB894-5F05-4234-849A-F96C69A8E196} = {8232F7F5-CDFB-4DE2-959B-219B687B8442}
+		{7837E3F3-75BD-4FB7-A6FD-0A989265617B} = {8232F7F5-CDFB-4DE2-959B-219B687B8442}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7475B3C7-8F54-446C-BED8-CE35256B23BF}
