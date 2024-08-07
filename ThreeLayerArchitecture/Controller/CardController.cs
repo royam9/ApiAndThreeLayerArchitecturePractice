@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using ProjectN.Common.Interface;
 using ProjectN.Service.Dtos.Info;
 using ProjectN.Service.Dtos.ResultModel;
 using ProjectN.Service.Implement;
@@ -17,13 +18,11 @@ public class CardController : ControllerBase
     private readonly IMapper _mapper;
     private readonly ICardService _cardService;
 
-    public CardController()
-    {
-        var config = new MapperConfiguration(cfg => cfg.AddProfile<ControllerMappings>());
-
-        _mapper = config.CreateMapper();
-
-        _cardService = new CardService();
+    public CardController(IMapperService mapperService,
+        ICardService cardService)
+    {        
+        _mapper = mapperService.CreateMapper();
+        _cardService = cardService;
     }
 
     /// <summary>
@@ -96,7 +95,15 @@ public class CardController : ControllerBase
         [FromRoute] int id,
         [FromBody] CardParameter parameter)
     {
-        // 更新卡片的一些操作
+        var info = this._mapper.Map<CardParameter, CardInfo>(parameter);
+        bool IsSucess = await _cardService.Update(id, info);
+
+        if (IsSucess)
+        {
+            return Ok();
+        }
+
+        return StatusCode(500);
     }
 
     /// <summary>
@@ -109,6 +116,13 @@ public class CardController : ControllerBase
     public async Task<IActionResult> Delete(
         [FromRoute] int id)
     {
-        // 刪除卡片的一些操作
+        bool IsSucess = await _cardService.Delete(id);
+
+        if (IsSucess)
+        {
+            return Ok();
+        }
+
+        return StatusCode(500);
     }
 }

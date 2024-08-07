@@ -3,7 +3,6 @@ using Microsoft.Data.SqlClient;
 using ProjectN.Repository.Dtos.Condition;
 using ProjectN.Repository.Dtos.DataModel;
 using ProjectN.Repository.Interface;
-using System.Linq;
 
 namespace ProjectN.Repository.Implement;
 
@@ -12,7 +11,14 @@ public class CardRepository : ICardRepository
     /// <summary>
     /// 連線字串
     /// </summary>
-    private readonly string _connectionString = "Server=Windows-PC-Jack\\SQLEXPRESS;TrustServerCertificate=True;Database=Newbie;Trusted_Connection=True;";
+    // private readonly string _connectionString = "Server=Windows-PC-Jack\\SQLEXPRESS;TrustServerCertificate=True;Database=Newbie;Trusted_Connection=True;";
+
+    private readonly string _connectionString;
+
+    public CardRepository(string connectionString)
+    {
+        _connectionString = connectionString;
+    }
 
     /// <summary>
     /// 查詢卡片列表
@@ -71,7 +77,7 @@ public class CardRepository : ICardRepository
 
         if (sqlQuery.Any())
         {
-            sql += $"WHERE{string.Join("AND", sqlQuery)}";
+            sql += $" WHERE {string.Join(" AND ", sqlQuery)}";
         }
 
         using (var conn = new SqlConnection(_connectionString))

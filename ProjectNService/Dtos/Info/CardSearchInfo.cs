@@ -2,7 +2,7 @@
 
 public class CardSearchInfo
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int? MinAttack { get; set; }
     public int? MaxAttack { get; set; }
     public int? MinHealth { get; set; }

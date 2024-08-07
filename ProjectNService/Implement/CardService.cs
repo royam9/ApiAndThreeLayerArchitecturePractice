@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjectN.Common.Interface;
 using ProjectN.Repository.Dtos.Condition;
 using ProjectN.Repository.Dtos.DataModel;
 using ProjectN.Repository.Implement;
@@ -15,14 +16,11 @@ public class CardService : ICardService
     private readonly ICardRepository _cardRepository;
     private readonly IMapper _mapper;
 
-    public CardService()
+    public CardService(ICardRepository cardRepository,
+        IMapperService mapperService)
     {
-        _cardRepository = new CardRepository();
-
-        var config = new MapperConfiguration(cfg =>
-            cfg.AddProfile<ServiceMappings>());
-
-        _mapper = config.CreateMapper();
+        _cardRepository = cardRepository;
+        _mapper = mapperService.CreateMapper();
     }
 
     /// <summary>

@@ -8,7 +8,7 @@ public class CardSearchParameter
     /// <summary>
     /// 卡片名稱
     /// </summary>
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// 攻擊力下限
